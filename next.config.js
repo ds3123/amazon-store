@@ -1,7 +1,19 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-}
 
-module.exports = nextConfig
+module.exports = {
+
+  reactStrictMode : true ,
+
+  experimental    : {
+                      appDir : true
+                    } ,
+
+  images          : {
+                       domains : [ 
+                                   'links.papareact.com' , 
+                                   'fakestoreapi.com' ,
+                                   'www.jsonkeeper.com' 
+                                  ],
+                    } ,
+
+}

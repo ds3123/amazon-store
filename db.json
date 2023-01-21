@@ -1,0 +1,25 @@
+{
+  "posts": [
+    {
+      "title": "Post Two",
+      "body": "From Postman",
+      "publishedAt": "2022-06-06",
+      "id": "2DtcyqI"
+    },
+    {
+      "title": "GG33",
+      "body": "AAA",
+      "publishedAt": "2022-06-09",
+      "id": "fMvC2Tw"
+    }
+  ],
+
+  "users": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "john@exampole.com"
+    }
+  ]
+  
+}
