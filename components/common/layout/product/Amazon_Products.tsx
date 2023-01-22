@@ -30,8 +30,10 @@ const Amazon_Products = ( { products } ) => {
 
               </div>
         
-              { /* 剩下的商品 ( products.length ) */ } 
+              { /* 剩下的商品  */ } 
               { products.slice( 5 , products.length ).map( ( product ) => <Product_Card key = { product.id } { ...product } /> ) }
+
+            
 
            </div>
 

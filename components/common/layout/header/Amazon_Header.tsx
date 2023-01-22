@@ -2,14 +2,29 @@
 
 import Image from "next/image" ;
 import {
-    MenuIcon ,
-    SearchIcon , 
-    ShoppingCartIcon
-} from "@heroicons/react/outline"
+        MenuIcon ,
+        SearchIcon , 
+        ShoppingCartIcon
+} from "@heroicons/react/outline" ;
+
+// "next-auth/client" 已改名為 "next-auth/react"
+import { signIn , signOut , useSession } from "next-auth/react" ; 
+import { useRouter } from "next/router" ; 
+import { useSelector } from "react-redux" ;
+
 
 
 const Amazon_Header = ( { placeholder } : T_Header ) => {
 
+
+    // 取得 _ Google 授權登入的使用者資訊
+    const { data : session } = useSession() ;
+
+    // 取得 _ 路由
+    const router = useRouter() ;
+
+    // 加入購物車的產品項目
+    const selected_Items = useSelector( ( state : any ) => state.basket.items ) ; 
 
 
     return <header>
@@ -18,7 +33,7 @@ const Amazon_Header = ( { placeholder } : T_Header ) => {
                 <div className="flex items-center bg-amazon_blue p-1 flex-grow py-2">
 
                     { /* Logo */ }
-                    <div className="mx-6 mt-5 flex items-center flex-grow sm:flex-grow-0">
+                    <div className="mx-6 mt-5 flex items-center flex-grow sm:flex-grow-0" onClick = { () => router.push( "/amazon" ) }>
 
                         <Image src       = "https://links.papareact.com/f90"
                                width     = { 150 }
@@ -40,8 +55,10 @@ const Amazon_Header = ( { placeholder } : T_Header ) => {
                     { /* Right */ }
                     <div className="text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap">
 
-                        <div className="link">
-                            <p> Hello Danny  </p>
+                        <div onClick = { !session ? signIn as any : signOut } className="link">
+                            <p> 
+                                { session ? `Hello , ${ session.user.name }` : "Sign In" }  
+                            </p>
                             <p className="font-extrabold md:text-sm"> Accoumt & Lists </p>
                         </div>
                         
@@ -50,13 +67,15 @@ const Amazon_Header = ( { placeholder } : T_Header ) => {
                              <p className="font-extrabold md:text-sm"> & Orders </p>
                         </div>
                         
-                        <div className="relative link flex items-center">
+                        <div onClick = { () => router.push( "/checkout" ) } className="relative link flex items-center">
 
-                             <span className="absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-400 text-center  rounded-full text-black"> 23 </span>
-
+                             <span className="absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-400 text-center  rounded-full text-black"> 
+                                  { selected_Items.length }
+                             </span>
 
                              <ShoppingCartIcon className="h-10"/>
                              <p className="hidden md:inline font-extrabold md:text-sm mt-2"> Basket </p>
+
                         </div>
 
                     </div>

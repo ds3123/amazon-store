@@ -31,7 +31,7 @@ export default function Amazon( { products } ){
     return <div className="bg-gray-100 ">
  
                 <Head>
-                        <title> Amazon 2.0  </title>
+                     <title> Amazon 2.0  </title>
                 </Head>
 
                 <Amazon_Header placeholder="GG"/>
@@ -55,8 +55,6 @@ export default function Amazon( { products } ){
 export const getServerSideProps = async( context ) => {
 
      const products  = await fetch( "https://fakestoreapi.com/products" ).then( res => res.json() )  
-
-     const _products = products.data 
 
      return { 
               props : {

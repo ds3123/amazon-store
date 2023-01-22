@@ -17,6 +17,9 @@ export { default as Small_Card } from "./box/Small_Card" ;
 export { default as Large_Card } from "./box/Large_Card" ;
 export { default as Bottom_Info_Card } from "./box/Bottom_Info_Card" ;
 export { default as Product_Card } from "./box/Product_Card" ;
+export { default as Checkout_Product } from "./box/Checkout_Product" ;
+
+
 
 export { default as Banner_Right_Image } from "./banner/Banner_Right_Image" ;
 export { default as Banner_Center_Info } from "./banner/Banner_Center_Info" ;

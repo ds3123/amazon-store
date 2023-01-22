@@ -1,15 +1,20 @@
-import {  React_Responsive_Carousel , 
-          Left_Main_Pic ,
-          Banner_Right_Image ,
-          Banner_Center_Info ,
-          Scroll_Card ,
-          Small_Card ,
-          Large_Card , 
-          Bottom_Info_Card  ,
-          Front_Search_Header ,
-          Front_Common_Footer 
-       } from "@layout/index" ;
- 
+
+import { React_Responsive_Carousel , 
+         Carousel_With_Gradient ,
+         Amazon_Products ,
+         Left_Main_Pic ,
+         Banner_Right_Image ,
+         Banner_Center_Info ,
+         Scroll_Card ,
+         Small_Card ,
+         Large_Card , 
+         Bottom_Info_Card  ,
+         Front_Search_Header ,
+         Front_Common_Footer ,
+         Amazon_Header ,
+ } from "@layout/index" ;
+
+
 import { I_Scroll_Card } from "@type/basic_Types" ;
 import { I_Small_Card } from "@type/basic_Types" ;
 
@@ -22,8 +27,8 @@ type Props = {
 }
 
 
-// const Home = ( { small_Card_Data , scroll_Card_Data } : Props ) => {
-const Home = ( ) => {
+ const Home = ( { small_Card_Data , scroll_Card_Data } : Props ) => {
+
 
 
   return <div>
@@ -41,7 +46,7 @@ const Home = ( ) => {
                 <Bottom_Info_Card card_Data = { scroll_Card_Data } />
                 <Bottom_Info_Card card_Data = { scroll_Card_Data } />
 
-                <Scroll_Card section_Title = "精選商品" card_Data={ scroll_Card_Data } />  */}
+                <Scroll_Card section_Title = "精選商品" card_Data={ scroll_Card_Data } />   */}
 
                 <Large_Card img_Title    = "The Greatest Outdoors" 
                             img_Subtitle = "Whishlists curated by airbnb" 
@@ -60,11 +65,14 @@ const Home = ( ) => {
                                 img_Subtitle = "It's easy and free to post your thinking on any topic and connect with millions of readers." 
                                 img_Url      = "https://accountabilitylab.org/wp-content/uploads/2020/03/Medium-logo.png" />   
             
-            <Front_Common_Footer />
+            <Front_Common_Footer /> 
 
          </div>  
             
-      
+     
+  
+
+
 } ;
 
 export default Home
