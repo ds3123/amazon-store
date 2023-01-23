@@ -74,7 +74,8 @@ const Checkout = () => {
                     
                     { selected_Items.length > 0 &&
                     
-                          <>
+                         <>
+
                              <h2 className="whitespace-nowrap"> 
 
                                   Subtotal ( { selected_Items.length } items ) :&nbsp;
@@ -86,7 +87,7 @@ const Checkout = () => {
                              </h2>
 
                              <button disabled = { !session } className = { `amazon-button mt-2 
-                                                   ${ !session && 'from-gray-300 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed' }` } >
+                                                                            ${ !session && 'from-gray-300 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed' }` } >
 
                                 { !session ? 'Sign In To Checkout' : 'Proceed To Checkout' }
 

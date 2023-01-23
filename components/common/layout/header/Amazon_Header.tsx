@@ -33,7 +33,7 @@ const Amazon_Header = ( { placeholder } : T_Header ) => {
                 <div className="flex items-center bg-amazon_blue p-1 flex-grow py-2">
 
                     { /* Logo */ }
-                    <div className="mx-6 mt-5 flex items-center flex-grow sm:flex-grow-0" onClick = { () => router.push( "/amazon" ) }>
+                    <div className="mx-6 mt-5 flex items-center flex-grow sm:flex-grow-0" onClick = { () => router.push( "/" ) }>
 
                         <Image src       = "https://links.papareact.com/f90"
                                width     = { 150 }
