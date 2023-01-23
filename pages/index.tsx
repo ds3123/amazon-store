@@ -38,12 +38,11 @@ export default function Amazon( { products } ){
 
                 <main className="relative max-w-screen-2xl mx-auto">
 
-                  { /* Banner */ }
-                  <Carousel_With_Gradient />
+                    { /* Banner */ }
+                    <Carousel_With_Gradient />
 
-                  { /* ProductFeed */ }
-                  <Amazon_Products products = { products } />
-
+                    { /* ProductFeed */ }
+                    <Amazon_Products products = { products } />
     
                 </main>
 
