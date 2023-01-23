@@ -10,6 +10,9 @@ import FacebookProvider from "next-auth/providers/facebook" ;
 
 export const authOptions = {
 
+  secret : process.env.NEXTAUTH_SECRET ,
+
+
   // 設定 _ 一個或多個 : 授權供應商 ( Auth Providers ) ，例如 : Google , Facebok , Line ...
   providers: [
 
