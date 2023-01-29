@@ -34,13 +34,13 @@ const Amazon_Products = ( { products } ) => {
 
 
 
-    return <div className="grid grid-flow-row-dense grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-5 md:-mt-30 mx-auto">
+    return <div className="grid grid-flow-row-dense md:grid-cols-2 gap-x-0 lg:grid-cols-3 xl:grid-cols-4 mt-5 md:-mt-30 mx-auto">
 
               {/* 前 4 個商品  */}
               { data.slice( 0 , 4 ).map( ( data ) => <Product_Card key = { data.id } { ...data } /> ) }
  
               {/* Banner */}
-              <img className=" col-span-full" src="https://links.papareact.com/dyz" alt="" />
+              <img className="col-span-full" src="https://links.papareact.com/dyz" alt="" />
 
               {/* 第 5,6 個商品  */}
               <div className="md:col-span-2"> 

@@ -68,16 +68,16 @@ const Product_Card = ( { id , title , price , description , category , image } )
 
     return <div className="relative flex flex-col m-5 bg-white z-30 p-0 md:p-10">
 
-                 <p className="absolute -top-1 -left-2 px-3 py-1 rounded-lg bg-gray-500  text-sm italic text-white"> { category } </p>
+                 <p className="absolute top-0 left-0  md:-top-1 -left-2 px-3 py-1 rounded-lg bg-gray-500  text-sm italic text-white"> { category } </p>
 
                  { /* 商品圖 */ }
                  <div className = "w-full h-80" >
                     <img loading = "lazy" className = "object-contain w-full h-80" src = { image } alt = '' />    
                  </div> 
                  
-                 <div className="px-3 md:mt-5 pb-10 relative">
+                 <div className="px-3 mt-10 md:mt-5 pb-10 relative">
 
-                    <h4 className="text-md md:text-lg mb-5 line-clamp-2"> { title } </h4>
+                    <h4 className="text-lg mb-5 line-clamp-2"> { title } </h4>
 
                     <div className="flex">
                       
@@ -109,8 +109,7 @@ const Product_Card = ( { id , title , price , description , category , image } )
 
                  </button>
 
-                 
-
+      
             </div>
 
 
