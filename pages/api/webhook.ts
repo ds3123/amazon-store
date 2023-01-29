@@ -1,6 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 
-import { buffer } from "micro" ;
+// import { buffer } from "micro" ;
 import * as admin from "firebase-admin" ;
 
 
@@ -47,42 +47,42 @@ const fulfillOrder = async( session : any ) => {
 export default async( req , res ) => {
 
 
-    if( req.method === "POST" ){
+    // if( req.method === "POST" ){
 
-        const requestBuffer = await buffer( req ) ; 
-        const payload       = requestBuffer.toString() ;
-        const sig           = req.headers[ "stripe-signature" ] ;
+    //     const requestBuffer = await buffer( req ) ; 
+    //     const payload       = requestBuffer.toString() ;
+    //     const sig           = req.headers[ "stripe-signature" ] ;
 
         
-        // Firebase 確認 _ 是否為來自 Stripe 推送的事件 ( Verify that the EVENT posted came from stripe )
+    //     // Firebase 確認 _ 是否為來自 Stripe 推送的事件 ( Verify that the EVENT posted came from stripe )
     
-        let event ;
+    //     let event ;
 
-        try{
+    //     try{
 
-            event = stripe.webhooks.constructEvent( payload , sig , endpointSecret ) ;
+    //         event = stripe.webhooks.constructEvent( payload , sig , endpointSecret ) ;
 
-        }catch( err ){
+    //     }catch( err ){
 
-            console.log( "ERROR : " , err.message ) ;
-            return res.status( 400 ).send( `Webhook Error : ${ err.message }` ) ;
+    //         console.log( "ERROR : " , err.message ) ;
+    //         return res.status( 400 ).send( `Webhook Error : ${ err.message }` ) ;
 
-        }
+    //     }
 
-        // 如果所觸發的事件是合法的 ( 來自於 Stripe )，Firebase 處理事件 ： checkout.session.completed
-        if( event.type === "checkout.session.completed" ){
+    //     // 如果所觸發的事件是合法的 ( 來自於 Stripe )，Firebase 處理事件 ： checkout.session.completed
+    //     if( event.type === "checkout.session.completed" ){
 
-             const session = event.data.object ;
+    //          const session = event.data.object ;
 
-             // 將資料輸入 Firebase 資料庫
-             return fulfillOrder( session )
-                       .then( () => res.status( 200 ) )
-                       .catch( err => res.status( 400 ).send( `Webhook Error : ${ err.message }` ) ) ;
+    //          // 將資料輸入 Firebase 資料庫
+    //          return fulfillOrder( session )
+    //                    .then( () => res.status( 200 ) )
+    //                    .catch( err => res.status( 400 ).send( `Webhook Error : ${ err.message }` ) ) ;
 
-        }
+    //     }
 
 
-    }
+    // }
 
 
 } ;
