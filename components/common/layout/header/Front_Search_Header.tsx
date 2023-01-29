@@ -47,7 +47,7 @@ const Front_Search_Header = ( { placeholder } : T_Header ) => {
     return <header className="sticky top-0 z-50  shadow-md ">
 
                 { /* Top Nav */ }
-                <div className = "grid grid-cols-3 bg-white p-5 md:px-10" >
+                <div className = "grid grid-cols-2 md:grid-cols-3 bg-white p-5 md:px-10" >
                     
                     { /* Left : logo */ }
                     <div className = "relative flex h-18 items-center cursor-pointer my-auto"
@@ -58,7 +58,7 @@ const Front_Search_Header = ( { placeholder } : T_Header ) => {
                     </div>
 
                     { /* Middle : Search */ }
-                    <div className = "relative top-4 flex items-center h-12 md:border-2 rounded-full py-2 md:shadow-sm" >
+                    <div className = "hidden md:flex relative top-4  items-center h-12 md:border-2 rounded-full py-2 md:shadow-sm" >
 
                         <input className   = "flex-grow pl-5 bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400" 
                             type        = "text"
@@ -83,7 +83,7 @@ const Front_Search_Header = ( { placeholder } : T_Header ) => {
                         </div>
                         
                         { /* 登入狀態 */ }
-                        <div className = "cursor-pointe md:border-2 hover:border-gray-400 flex items-center space-x-2  px-2 md:p-2 md:px-4 rounded-full"
+                        <div className = "cursor-pointer relative -left-5 lg:left-0 md:border-2 hover:border-gray-400 flex items-center space-x-2  px-2 md:p-2 md:px-4 rounded-full"
                             onClick   = { !session ? signIn as any : signOut } >
 
                             { session ? <> <img loading = "lazy" className = "h-10 md:h-8 rounded-full" src = { session.user.image } /> <p className="hidden md:flex"> 登出 </p> </> : 

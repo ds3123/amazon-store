@@ -66,7 +66,7 @@ const Product_Card = ( { id , title , price , description , category , image } )
     const is_Product_Selected = check_Product_Selected( id ) ;
 
 
-    return <div className="relative flex flex-col m-5 bg-white z-30 p-10">
+    return <div className="relative flex flex-col m-5 bg-white z-30 p-0 md:p-10">
 
                  <p className="absolute -top-1 -left-2 px-3 py-1 rounded-lg bg-gray-500  text-sm italic text-white"> { category } </p>
 
@@ -75,38 +75,41 @@ const Product_Card = ( { id , title , price , description , category , image } )
                     <img loading = "lazy" className = "object-contain w-full h-80" src = { image } alt = '' />    
                  </div> 
                  
-                 {/* <Image src={ image } height={ 200 }  width={ 200 } objectFit='contain' /> */}
+                 <div className="px-3 md:mt-5 pb-10 relative">
 
-                 <h4 className="m-5 text-lg line-clamp-2"> { title } </h4>
+                    <h4 className="text-md md:text-lg mb-5 line-clamp-2"> { title } </h4>
 
-                 <div className="flex">
-                    
-                   { Array( rating ).fill( 0 ).map( ( _ , i ) => <StarIcon key = { i } className="h-5 text-brown-500" /> ) }
-                    
-                 </div>  
+                    <div className="flex">
+                      
+                      { Array( rating ).fill( 0 ).map( ( _ , i ) => <StarIcon key = { i } className="h-5 text-brown-500" /> ) }
+                      
+                    </div>  
 
-                 <p className="text-sm text-gray-600 my-2 mb-10 line-clamp-2"> { description } </p>
+                    <p className="text-sm text-gray-600 my-2 mb-5 line-clamp-2"> { description } </p>
 
-                 <div className="mb-5 flex justify-end">
-                       <Currency quantity = { price } currency="TWD" />
+                    <div className="flex justify-start mb-5">
+                          <Currency quantity = { price } currency="TWD" />
+                    </div>
+
+                    {/* { hasPrime && <div className="flex items-center justify-end space-x-2 relative -top-5"> 
+                                        <img className="w-16" src="https://links.papareact.com/fdw" alt="" /> 
+                                        <p className="text-md text-gray-500"> 免運費 </p>
+                                  </div> } */}
+
                  </div>
 
-                 { hasPrime && <div className="flex items-center justify-end space-x-2 -mt-5"> 
-                                     <img className="w-16" src="https://links.papareact.com/fdw" alt="" /> 
-                                     <p className="text-md text-gray-500"> 免運費 </p>
-                               </div> }
+                 <button className = { `flex items-center place-content-center mt-auto w-full absolute left-0 bottom-0 md:bottom-5 
+                                          ${ is_Product_Selected ? 'amazon-button' : 'remove-button' }  ` }
+                            onClick   = { is_Product_Selected ? addItemToBasket : removeItemFromBasket } > 
 
-
-                 <button className = { `flex items-center place-content-center mt-auto 
-                                        ${ is_Product_Selected ? 'amazon-button' : 'remove-button' }  ` }
-                         onClick   = { is_Product_Selected ? addItemToBasket : removeItemFromBasket } > 
-
-                    <ShoppingCartIcon className = { `h-7 mr-3 ${ is_Product_Selected ? 'text-gray-800' : 'text-white' } ` } />
-                    <p className = "text-lg" > 
-                       { is_Product_Selected ? '加入購物車 ' : '從購物車移除' }
-                    </p>  
+                      <ShoppingCartIcon className = { `h-7 mr-3 ${ is_Product_Selected ? 'text-gray-800' : 'text-white' } ` } />
+                      <p className = "text-lg" > 
+                          { is_Product_Selected ? '加入購物車 ' : '從購物車移除' }
+                      </p>  
 
                  </button>
+
+                 
 
             </div>
 
