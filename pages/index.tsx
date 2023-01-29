@@ -23,9 +23,7 @@ import { React_Responsive_Carousel ,
 
 */
 
-
 export default function Amazon( { products } ){
-
 
     return <div className="bg-gray-100" >
  
