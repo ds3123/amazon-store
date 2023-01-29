@@ -74,7 +74,8 @@ const Front_Search_Header = ( { placeholder } : T_Header ) => {
                     <div className="flex items-center space-x-4 justify-end text-gray-500">
 
                         { /* 管理系統 */ }
-                        <div className = "hidden lg:flex lg:items-center bg-gray-600 hover:bg-black text-white cursor-pointer border hover:border-gray-500 rounded-full py-3 px-4" >
+                        <div className = "hidden lg:flex lg:items-center bg-gray-600 hover:bg-black text-white cursor-pointer border hover:border-gray-500 rounded-full py-3 px-4" 
+                             onClick   = { ()=> window.open( "http://demo05.cchouse.com.tw/" , "_blank" ) } >
                             
                            <FontAwesomeIcon className="h-14 mr-2" icon = { faDatabase } />
                            <p> 寵物管理系統 </p>
