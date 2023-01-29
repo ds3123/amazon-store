@@ -9,6 +9,7 @@ export { default as Amazon_Products } from "./product/Amazon_Products" ;
 export { default as Amazon_Header } from "./header/Amazon_Header" ;
 export { default as Front_Search_Header } from "./header/Front_Search_Header" ;
 export { default as Front_Common_Header } from "./header/Front_Common_Header" ;
+export { default as Admin_Header } from "./header/Admin_Header" ;
 
 export { default as Front_Common_Footer } from "./footer/Front_Common_Footer" ;
 

@@ -7,6 +7,8 @@ import {
         ShoppingCartIcon
 } from "@heroicons/react/outline" ;
 
+import { useState } from 'react' ;
+
 // "next-auth/client" 已改名為 "next-auth/react"
 import { signIn , signOut , useSession } from "next-auth/react" ; 
 import { useRouter } from "next/router" ; 
@@ -15,6 +17,8 @@ import { useSelector } from "react-redux" ;
 
 
 const Amazon_Header = ( { placeholder } : T_Header ) => {
+
+     const [ searchInput , set_SearchInput ] = useState( "" ) ; 
 
 
     // 取得 _ Google 授權登入的使用者資訊
@@ -27,7 +31,7 @@ const Amazon_Header = ( { placeholder } : T_Header ) => {
     const selected_Items = useSelector( ( state : any ) => state.basket.items ) ; 
 
 
-    return <header>
+    return <header className = "sticky top-0 z-50">
 
                 { /* Top Nav */ } 
                 <div className="flex items-center bg-amazon_blue p-1 flex-grow py-2">
@@ -50,22 +54,21 @@ const Amazon_Header = ( { placeholder } : T_Header ) => {
  
                          <SearchIcon className="h-12 p-4" />
 
-                    </div>
+                    </div> 
+
+                
+
 
                     { /* Right */ }
                     <div className="text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap">
 
                         <div onClick = { !session ? signIn as any : signOut } className="link">
-                            <p> 
+                            <p className="text-lg"> 
                                 { session ? `Hello , ${ session.user.name }` : "Sign In" }  
                             </p>
-                            <p className="font-extrabold md:text-sm"> Accoumt & Lists </p>
                         </div>
                         
-                        <div className="link">
-                             <p> Returns </p>
-                             <p className="font-extrabold md:text-sm"> & Orders </p>
-                        </div>
+                       
                         
                         <div onClick = { () => router.push( "/checkout" ) } className="relative link flex items-center">
 
@@ -83,7 +86,7 @@ const Amazon_Header = ( { placeholder } : T_Header ) => {
                 </div>
 
                 { /* Bottom Nav */ }
-                <div className="flex items-center space-x-3 p-2 pl-6 bg-amazon_blue-light text-white text-sm">
+                <div className="flex items-center pl-6 bg-amazon_blue-light text-white text-sm">
   
                      <p className="link flex items-center"> 
                         <MenuIcon className="h-6 mr-1"/>

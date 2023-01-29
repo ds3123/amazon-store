@@ -16,7 +16,6 @@ import { React_Responsive_Carousel ,
  } from "@layout/index" ;
 
 
-
 /*
  
    Amazon 專案練習樣板 ( 2023.01.16 )
@@ -28,21 +27,35 @@ import { React_Responsive_Carousel ,
 export default function Amazon( { products } ){
 
 
-    return <div className="bg-gray-100 ">
+    return <div className="bg-gray-100" >
  
                 <Head>
-                     <title> Amazon 2.0  </title>
+                     <title> 狗狗公園  </title>
                 </Head>
 
-                <Amazon_Header placeholder="GG"/>
+                <Front_Search_Header placeholder="請輸入搜尋關鍵字" />
 
-                <main className="relative max-w-screen-2xl mx-auto">
+                <main className="max-w-8xl mx-auto px-0 md:px-15">
 
-                    { /* Banner */ }
-                    <Carousel_With_Gradient />
+                    { /* Carousel */ }
+                    <React_Responsive_Carousel images = { [] } />
 
                     { /* ProductFeed */ }
                     <Amazon_Products products = { products } />
+
+                    { /* Banner */ } 
+                    <Banner_Center_Info img_Url     = "https://shoplineimg.com/5865c87a72fdc0f66d002f94/624119c12274ce001889f69b/1200x.webp?source_format=png"
+                                        img_Title   = "本週新增多樣商品"
+                                        button_Text = "查看最新活動" />
+
+                    { /* Banner */ } 
+                    <Banner_Center_Info img_Url     = "https://cms.cdn.91app.com/images/original/1848/2ca13621-61e2-4a36-a117-976d4e5d6cc4-1573700291-o3df7bs9vn_m_1200x563_800x375_400x188.jpg"
+                                        img_Title   = "本週新增多樣商品"
+                                        button_Text = "查看最新活動" />
+
+                  
+                    { /* Footer */ } 
+                    <Front_Common_Footer /> 
     
                 </main>
 
@@ -53,7 +66,8 @@ export default function Amazon( { products } ){
 
 export const getServerSideProps = async( context ) => {
 
-     const products  = await fetch( "https://fakestoreapi.com/products" ).then( res => res.json() )  
+     // const products  = await fetch( "https://fakestoreapi.com/products" ).then( res => res.json() ) 
+     const products  = [] ;
 
      return { 
               props : {

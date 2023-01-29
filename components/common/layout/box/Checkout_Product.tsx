@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/alt-text */
 import Image from "next/image"
-import { StarIcon } from "@heroicons/react/outline" ;
 import Currency from "react-currency-formatter" ;
 import { useDispatch } from "react-redux";
 import { addToBasket , removeFromBasket } from "store/slices/basketSlice";
+import { ShoppingCartIcon } from "@heroicons/react/solid" ;
 
 
 
@@ -13,7 +13,6 @@ const Checkout_Product = ( { id , title , rating , price , description , categor
 
 
   const dispatch = useDispatch() ;  
-
 
 
   // 點選 _ 加入購物車
@@ -35,35 +34,34 @@ const Checkout_Product = ( { id , title , rating , price , description , categor
 
   return <div className="grid grid-cols-5">
 
-           <Image src = { image } width = { 200 } height = { 200 } objectFit = "contain" />
-            
+           <img loading = "lazy" src = { image } alt="" />
+  
            <div className="col-span-3 mx-5">
               
-               <p> { title } </p>
+               <p className = "text-xl line-clamp-2"> { title } </p>
  
-               <div className="flex">
-
-                 { Array( rating ).fill( 0 ).map( ( _ , i ) => <StarIcon key = { i } className="h-5 text-yellow-500" /> ) }
-                
-               </div>
-
-               <p className="text-xs mt-2 line-clamp-3">
+               <p className="text-md text-gray-600 mt-2 line-clamp-3 mb-5">
                    { description } 
                </p>
 
-               <Currency quantity = { price } currency = "GBP" />
+               <Currency quantity = { price } currency = "TWD" />
 
-               { hasPrime && <div className="flex items-center space-x-2"> 
-                                <img loading = "lazy" className="w-14" src="https://links.papareact.com/fdw" alt="" />
-                                <p className="text-xs text-gray-500"> Free Next-Day Delivery </p>
-                             </div> }
+               { hasPrime && <div className="flex items-center justify-end space-x-2 -mt-5"> 
+                                     <img className="w-16" src="https://links.papareact.com/fdw" alt="" /> 
+                                     <p className="text-md text-gray-500"> 免運費 </p>
+                               </div> }
 
            </div>
 
            <div className="flex flex-col space-y-2 my-auto justify-self-end">
 
-               <button className="amazon-button" onClick = { addItemToBasket }>  Add To Basket  </button>
-               <button className="amazon-button" onClick = { removeItemFromBasket }>  Remove From Basket  </button>
+               {/* <button className="amazon-button" onClick = { addItemToBasket }>  Add To Basket  </button> */}
+               <button className="flex items-center remove-button" onClick = { removeItemFromBasket }>  
+               
+                    <ShoppingCartIcon className = "hidden md:flex h-7 mr-3" />
+                    <p> 移除 </p>  
+
+               </button>
 
            </div>
 

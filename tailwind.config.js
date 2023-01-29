@@ -1,4 +1,9 @@
-module.exports = {
+
+
+// for Material Tailwind
+const withMT = require("@material-tailwind/react/utils/withMT") ;
+
+module.exports = withMT( {
 
     purge     : [ 
                    './pages/**/*.{js,ts,jsx,tsx}' , 
@@ -32,4 +37,5 @@ module.exports = {
                   require('@tailwindcss/line-clamp'), // 縮減字串
                 ] ,
 
-}
+                
+} ) ;

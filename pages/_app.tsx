@@ -1,9 +1,9 @@
 import type { ReactElement, ReactNode } from 'react'
 import type { NextPage } from 'next'
-
 import { AppProps } from "next/app";
-import "@assets/main.css" ;
 
+// CSS
+import "@assets/main.css" ;
 
 // Font Awesome
 import '@fortawesome/fontawesome-svg-core/styles.css'
@@ -11,6 +11,11 @@ import { library , config } from '@fortawesome/fontawesome-svg-core'
 import { fab  } from '@fortawesome/free-brands-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 //import { } from '@fortawesome/free-regular-svg-icons'
+
+
+// Materil Tailwind CSS 樣式
+// import "@material-tailwind/react/tailwind.css" ;  // 有問題 再確認 2023.01.24
+
 
 
 // Redux
@@ -52,7 +57,7 @@ function MyApp({ Component , pageProps } : AppPropsWithLayout ) {
 
   const getLayout = Component.getLayout || ( ( page ) => page )
   
-  return  <SessionProvider session={ pageProps.session } >
+  return  <SessionProvider session = { pageProps.session } >
 
             <Provider store = { store } >
   
